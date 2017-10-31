@@ -1,14 +1,15 @@
 #!/bin/bash
+#set -e
 source vkmdl-lib.sh
 echo -n "login... ";
 read USERID < <( login ) 
-echo "$USERID";
+echo "userid=${USERID};";
 playlists_load_html_page | playlists_parse_html_page | while IFS=$'\t' read playlist_id rusname_playlist; do
-	file_audiolist="al_audio_playlist.${playlist_id}.txt";
+	file_audiolist_abs="${SESSIONDIR}al_audio_playlist.${playlist_id}.txt";
 	playlist_dir
 	echo "$playlist_id $exdirname";
 	playlist_load_html_page | playlist_parse_html_page
-	i=0;	
+	i=0;
 	extract_song_titles_and_encoded_links | while IFS=$'\t' read fid url a b; do
 		filename && {
 			zi=${ZS:${#i}}$i;
@@ -20,6 +21,6 @@ playlists_load_html_page | playlists_parse_html_page | while IFS=$'\t' read play
 			}
 		(( i++ ))
 		done
-		break;
+		#break;
 	done
   
