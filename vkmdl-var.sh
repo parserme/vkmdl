@@ -1,7 +1,7 @@
 #!/bin/bash
 readonly SESSIONDIR="./session/"
 readonly LOGIN='webmaster@parser.me';
-readonly PASSWORD='hilev74';
+readonly PASSWORD='';
 readonly COOKIES_FILE="${SESSIONDIR}vk.cok";
 IFS=$'\t' read -a WGET_PARAMETERS_COMMON < <(paste -s -d $'\t' <<'EOF'
 --keep-session-cookies
