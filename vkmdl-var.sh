@@ -1,7 +1,8 @@
 #!/bin/bash
-readonly SESSIONDIR="./session/"
+readonly SAVEDIR='./';#'/mnt/yadisk/vkmdl/';
 readonly LOGIN='webmaster@parser.me';
-readonly PASSWORD='';
+readonly PASSWORD='primses5';
+readonly SESSIONDIR="./session/";
 readonly COOKIES_FILE="${SESSIONDIR}vk.cok";
 IFS=$'\t' read -a WGET_PARAMETERS_COMMON < <(paste -s -d $'\t' <<'EOF'
 --keep-session-cookies
